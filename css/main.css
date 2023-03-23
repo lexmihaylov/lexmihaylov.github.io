@@ -134,6 +134,7 @@ footer {
     justify-content: space-between;
     align-items: center;
     font-size: 1.5rem;
+    flex-direction: column;
 }
 
 footer .social-links {
@@ -142,6 +143,6 @@ footer .social-links {
 
 footer .social-links a {
     margin-right: 1rem;
-    font-size: 3rem;
+    font-size: 2.5rem;
     align-items: center;
 }
