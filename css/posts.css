@@ -1,0 +1,29 @@
+/* Posts */
+.blog-post {
+    text-align: justify;
+}
+
+.blog-post h1,
+.blog-post h2,
+.blog-post h3,
+.blog-post h4,
+.blog-post h5,
+.blog-post h6 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.blog-post pre {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    background-color: #49483E;
+    border: 0;
+}
+
+.blog-post pre code {
+    white-space: pre;
+}
+
+.blog-post pre .hljs-comment {
+    color:#b8b8b8;
+}

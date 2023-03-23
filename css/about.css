@@ -1,0 +1,64 @@
+.about {
+    background-color: #272822;
+    color: #F8F8F2;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.about h2 {
+    font-size: 48px;
+    margin-top: 0;
+}
+
+.about h4 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.about h5 {
+    font-size: 24px;
+    margin-bottom: 0;
+}
+
+.about hr {
+    border-color: #75715e;
+    border-width: 1px;
+}
+
+.about ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.about ul li {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.about .experience-section {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #3E3D32;
+}
+
+.about .experience-section h5 {
+    color: #F8F8F2;
+}
+
+.about .experience-section .company {
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    color: #F92672;
+}
+
+.about .experience-section .location,
+.about .experience-section .duration,
+.about .experience-section .date {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #F8F8F2;
+}
