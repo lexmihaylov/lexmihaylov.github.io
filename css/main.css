@@ -98,22 +98,24 @@ main::before{
     content: ' ';
     position: absolute;
     background-color: var(--secondary-background-color);
-    top: 33px;
-    height: 10%;
+    top: 36px;
+    bottom: 36px;
     left: 0;
-    width: 10%;
+    width: 100px;
     z-index: -1;
+    opacity: .5;
 }
 
 main::after {
     content: ' ';
     position: absolute;
     background-color: var(--secondary-background-color);
-    bottom: 33px;
-    height: 10%;
+    bottom: 36px;
+    top: 36px;
     right: 0;
-    width: 10%;
+    width: 100px;
     z-index: -1;
+    opacity: .5;
 }
 
 footer {
