@@ -99,6 +99,7 @@ main {
     min-height: calc(100vh - 2*70px);
     backdrop-filter: opacity(0);
     background-blend-mode: lighten;
+    background-attachment: fixed;
 }
 
 main::before {
