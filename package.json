@@ -7,7 +7,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "nest build",
-    "build:static": "rm -r dist.static && node utils/generate-static-pages.mjs",
+    "build:static": "node utils/generate-static-pages.mjs",
     "deploy": "gh-pages -d dist.static/localhost_3000",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",

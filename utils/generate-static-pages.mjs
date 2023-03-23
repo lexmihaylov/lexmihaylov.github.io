@@ -1,4 +1,9 @@
+import { rmSync, existsSync } from 'fs';
 import scrape from 'website-scraper'
+
+if (existsSync('dist.static')) {
+    rmSync('dist.static', {force: true, recursive: true});
+}
 
 scrape({
     urls: ['http://localhost:3000'],
