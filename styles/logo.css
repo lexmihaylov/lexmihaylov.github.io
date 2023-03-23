@@ -18,7 +18,7 @@
     position: relative;
 }
 
-.logo::before {
+/* .logo::before {
     content: attr(data-text);
     position: absolute;
     top: 10%;
@@ -41,7 +41,7 @@
     color: var(--logo-glitch-2-color);;
     mix-blend-mode: screen;
     animation: glitch 1s linear infinite;
-}
+} */
 
 @media screen and (max-width: 480px) {
     .logo {
