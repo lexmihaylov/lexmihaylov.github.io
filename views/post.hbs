@@ -1,0 +1,10 @@
+{{#if meta.customStyle }}
+<style type="text/css">
+    {{#each meta.customStyle}}
+        {{ this }}
+    {{/each}}
+</style>
+{{/if}}
+<article class="container blog-post">
+    {{{ html }}}
+</article>

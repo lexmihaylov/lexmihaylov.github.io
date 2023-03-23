@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Just A Concept 
+        {{#if pageTitle}}
+            / {{ pageTitle }}
+        {{/if}}
+    </title>
+    {{>meta-tags}}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js/styles/monokai.min.css">
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+
+<body>
+    <header class="hero">
+        <nav>
+            <ul>
+                <li><a href="/"><i class="fa fa-circle"></i></a></li>
+            </ul>
+        </nav>
+
+        <div class="logo" data-text="Just - A - concept">Just A Concept</div>
+
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/lexmihaylov/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/lexmihaylov" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </header>
+
+    <main>
+        {{{ body }}}
+    </main>
+    <footer>
+        <div>2023 © All rights reserved.</div>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/lexmihaylov/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/lexmihaylov" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<div class="container home">
+    <h1>Latest Concepts</h1>
+    <section class="blog-posts">
+        {{#each posts}}
+        <div class="blog-post">
+            <div class="post-details">
+                <h2><a href="/posts/{{this.id}}">{{this.title}}</a></h2>
+                <img src="{{this.image}}" alt="{{this.title}}">
+                <p class="desciption">{{this.description}}</p>
+            </div>
+            <div class="post-action">
+                <a href="/posts/{{this.id}}" class="read-more">Read more</a>
+
+                <div class="tags">
+                    {{#each this.tags}}
+                        <a href="/tags/{{ this }}">#{{ this }}</a>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        {{/each}}
+    </section>
+</div>

@@ -1,0 +1,47 @@
+<div class="container about">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>About Me</h2>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Contact</h4>
+            <ul>
+                <li>LinkedIn: <a href="{{contact.linkedin}}">{{contact.linkedin}}</a></li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h4>Top Skills</h4>
+            <ul>
+                {{#each topSkills}}
+                <li>{{this}}</li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h4>Languages</h4>
+            <ul>
+                {{#each languages}}
+                <li>{{this}}</li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h4>Experience</h4>
+            <hr>
+        </div>
+        {{#each experience}}
+        <div class="col-md-12 experience-section">
+            <h5>{{this.title}}</h5>
+            <p class="company">{{this.company}}</p>
+            <p class="location">{{this.location}}</p>
+            <p class="duration">{{this.duration}}</p>
+            <p class="date">{{this.startDate}} - {{#if this.endDate}}{{this.endDate}}{{else}}Present{{/if}}</p>
+        </div>
+        {{/each}}
+    </div>
+</div>
