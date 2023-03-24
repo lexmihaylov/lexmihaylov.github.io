@@ -5,7 +5,7 @@ import { BlogPostsService } from './blog-posts/blog-posts.service';
 
 @Controller()
 export class AppController {
-  constructor(private aboutInfo: AboutInfoService, private blogPostService: BlogPostsService, private appService: AppService ) { }
+  constructor(private aboutInfo: AboutInfoService, private blogPostService: BlogPostsService, private appService: AppService) { }
 
   @Get()
   @Render('index')
@@ -19,13 +19,20 @@ export class AppController {
   @Render('post')
   async post(@Param('id') id: string) {
     const doc = await this.blogPostService.getPostDetails(id);
-    return this.appService.viewData({ html: doc.html, meta: doc.meta, pageTitle: doc.meta.title })
+    return this.appService.viewData({
+      html: doc.html,
+      meta: doc.meta, 
+      pageTitle: doc.meta.title, 
+      pageDescription: doc.meta.description, 
+      image: doc.meta.image,
+      keywords: doc.meta.tags.join(',')
+    });
   }
 
   @Get('/about')
   @Render('about')
   about() {
-    return this.appService.viewData({...this.aboutInfo.data, pageTitle: 'About'});
+    return this.appService.viewData({ ...this.aboutInfo.data, pageTitle: 'About' });
   }
 
   @Get('/tags/:tag')
