@@ -1,0 +1,157 @@
+<!DOCTYPE html><html><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Just A Concept 
+            / Proactive Precaching: Handling Connectivity Loss
+    </title>
+    <meta name="description" content="Welcome to my personal blog, where we explore the latest trends and developments in the world of technology. From JavaScript to React and Angular, we delve into the nuts and bolts of the tools and frameworks that power modern web development. But we don't just stop there. We also cover leadership topics, including tips and tricks for managing teams and projects effectively. And for the gamers out there, we provide insight into the latest gaming technologies and trends. Join us as we explore the cutting-edge of technology, leadership, gaming, and beyond.">
+    <meta name="keywords" content="">
+    <meta property="og:title" content="Proactive Precaching: Handling Connectivity Loss">
+    <meta property="og:description" content="Welcome to my personal blog, where we explore the latest trends and developments in the world of technology. From JavaScript to React and Angular, we delve into the nuts and bolts of the tools and frameworks that power modern web development. But we don't just stop there. We also cover leadership topics, including tips and tricks for managing teams and projects effectively. And for the gamers out there, we provide insight into the latest gaming technologies and trends. Join us as we explore the cutting-edge of technology, leadership, gaming, and beyond.">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+    <meta property="og:type" content="">
+    <meta property="og:site_name" content="">
+    <meta name="twitter:title" content="Proactive Precaching: Handling Connectivity Loss">
+    <meta name="twitter:description" content="Welcome to my personal blog, where we explore the latest trends and developments in the world of technology. From JavaScript to React and Angular, we delve into the nuts and bolts of the tools and frameworks that power modern web development. But we don't just stop there. We also cover leadership topics, including tips and tricks for managing teams and projects effectively. And for the gamers out there, we provide insight into the latest gaming technologies and trends. Join us as we explore the cutting-edge of technology, leadership, gaming, and beyond.">
+    <meta name="twitter:image" content="">
+    <meta name="twitter:card" content="summary">
+    <link rel="canonical" href="">    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js/styles/monokai.min.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+</head>
+
+<body>
+    <header class="hero">
+        <nav>
+            <ul>
+                <li><a href="../../"><i class="fa fa-circle"></i></a></li>
+            </ul>
+        </nav>
+
+        <div class="logo" data-text="Just - A - concept">Just A Concept</div>
+
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/lexmihaylov/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/lexmihaylov" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </header>
+
+    <main>
+        <style type="text/css">
+        .blog-post img {width: 100%}
+</style>
+<article class="container blog-post">
+    <h1>Proactive Precaching: Handling Connectivity Loss</h1>
+<h2>Introduction</h2>
+<p>In modern web development, it's common for web applications to consume large amounts of data from the server. As a result, network connectivity can become a critical bottleneck, and network requests can result in slow loading times and poor user experiences.</p>
+<p>One way to mitigate this issue is through client-side caching. Caching involves storing data on the client-side, allowing subsequent requests to retrieve the data from the cache instead of making additional server requests. This technique can significantly improve the performance and responsiveness of web applications, particularly when dealing with data that changes infrequently.</p>
+<p>One use case for client-side caching is when we need to maintain objects in memory to avoid repeatedly fetching them from the server. By storing frequently used data on the client-side, we can reduce the number of requests sent to the server and speed up the application's response time. Even in scenarios where connectivity is temporarily lost, data stored in the cache can be retrieved, allowing the application to continue functioning seamlessly.</p>
+<p><img src="../../images/caching.png" alt="caching"></p>
+<h2>The problem</h2>
+<p>Suppose an education company offers online assessments to students and needs to maintain uninterrupted user experience even when the connection is unstable. During the assessments, multimedia assets like audio, video, and images are provided with the questions. However, the students cannot access the assets if they lose their internet connection temporarily. This results in poor performance and a bad experience overall.</p>
+<p>To address this problem, the company's technical team developed a client-side caching solution. This solution caches the multimedia assets on the client-side so that even if the students lose connectivity, they can still access the assets. The solution is designed to be lightweight, simple to implement, and provide a seamless user experience.</p>
+<h2>Solution</h2>
+<p>A way to approach the problem is by caching multimedia assets using JavaScript object URLs. The idea is to download the assets from the server, create a blob object from the downloaded data, and then create a URL object from the blob. The URL object can then be used to reference the cached data in the future.</p>
+<p>Here's some sample code that demonstrates how to use JavaScript object URLs to cache multimedia assets:</p>
+<pre class="hljs"><code><span class="hljs-comment">// Define a function to download a file from the server and cache it as a blob</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">cacheFile</span>(<span class="hljs-params">url</span>) {
+  <span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(url);
+  <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> response.<span class="hljs-title function_">blob</span>();
+  <span class="hljs-keyword">const</span> blob = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Blob</span>([data], { <span class="hljs-attr">type</span>: response.<span class="hljs-property">headers</span>.<span class="hljs-title function_">get</span>(<span class="hljs-string">'content-type'</span>) });
+  <span class="hljs-keyword">return</span> <span class="hljs-variable constant_">URL</span>.<span class="hljs-title function_">createObjectURL</span>(blob);
+}
+
+<span class="hljs-comment">// Example usage: cache an image file and set it as the source of an &lt;img&gt; element</span>
+<span class="hljs-keyword">const</span> imageUrl = <span class="hljs-string">'https://example.com/image.jpg'</span>;
+<span class="hljs-keyword">const</span> cachedImageUrl = <span class="hljs-keyword">await</span> <span class="hljs-title function_">cacheFile</span>(imageUrl);
+<span class="hljs-keyword">const</span> img = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">'img'</span>);
+img.<span class="hljs-property">src</span> = cachedImageUrl;
+<span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-title function_">appendChild</span>(img);
+</code></pre>
+<p>In this example, the cacheFile() function downloads the file at the given URL and creates a blob object from the downloaded data. It then creates a URL object from the blob and returns the URL. The img element is then created and its src attribute is set to the cached URL.</p>
+<p>But also we want to make our approach seamless without having a huge impact in the development process.</p>
+<p>Suppose we have an HTML page with an image that we want to cache on the client-side. We can add a custom attribute to the image tag, such as data-cacheable, to indicate that this image should be cached. Here's an example:</p>
+<pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"https://example.com/image.jpg"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"An image"</span> <span class="hljs-attr">data-cacheable</span>=<span class="hljs-string">"true"</span>&gt;</span>
+</code></pre>
+<p>Next, we can use JavaScript to intercept the image loading process and cache the image using an object URL. We can achieve this by adding an event listener to the load event of the image tag, creating an object URL using the URL.createObjectURL() method, and setting the src attribute of the image tag to the object URL. Here's an example:</p>
+<pre class="hljs"><code><span class="hljs-comment">// Get all images with the 'data-cacheable' attribute</span>
+<span class="hljs-keyword">const</span> cacheableImages = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">querySelectorAll</span>(<span class="hljs-string">'img[data-cacheable="true"]'</span>);
+
+<span class="hljs-comment">// Loop through each image and cache it</span>
+cacheableImages.<span class="hljs-title function_">forEach</span>(<span class="hljs-function">(<span class="hljs-params">image</span>) =&gt;</span> {
+  <span class="hljs-keyword">const</span> imageUrl = image.<span class="hljs-property">src</span>;
+
+  <span class="hljs-comment">// Create a new Image object and set its source to the original image URL</span>
+  <span class="hljs-keyword">const</span> img = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Image</span>();
+  img.<span class="hljs-property">src</span> = imageUrl;
+
+  <span class="hljs-comment">// When the image is loaded, create an object URL and set it as the new source</span>
+  img.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">'load'</span>, <span class="hljs-function">() =&gt;</span> {
+    <span class="hljs-comment">// Create a new object URL from the image data</span>
+    <span class="hljs-keyword">const</span> objectUrl = <span class="hljs-variable constant_">URL</span>.<span class="hljs-title function_">createObjectURL</span>(img);
+
+    <span class="hljs-comment">// Set the image source to the object URL</span>
+    image.<span class="hljs-property">src</span> = objectUrl;
+  });
+});
+</code></pre>
+<p>By using object URLs to cache the image, we can ensure that the image is always available, even if the user's connection is lost temporarily. When the connection is restored, the browser can automatically download the updated image from the server and replace the cached version.</p>
+<p>Here's an updated HTML tag with the src attribute replaced with the object URL:</p>
+<pre class="hljs"><code><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"blob:https://example.com/82a308a1-cb1a-48f9-b48c-8f29181ce82b"</span> <span class="hljs-attr">alt</span>=<span class="hljs-string">"An image"</span> <span class="hljs-attr">data-cacheable</span>=<span class="hljs-string">"true"</span>&gt;</span>
+
+</code></pre>
+<p>This approach can be extended beyond multimedia assets to cache data responses from the server as well. By identifying frequently used data and caching it on the client-side, we can significantly improve the performance and responsiveness of web applications, particularly when dealing with data that changes infrequently. Additionally, by adding custom attributes to the respective tags and using similar code to cache them, we can also cache other types of resources such as videos or audio files.</p>
+<pre class="hljs"><code><span class="hljs-keyword">function</span> <span class="hljs-title function_">fetchAndCache</span>(<span class="hljs-params">url</span>) {
+  <span class="hljs-comment">// Check if the response is already in the cache</span>
+  <span class="hljs-keyword">if</span> (url <span class="hljs-keyword">in</span> cache) {
+    <span class="hljs-keyword">return</span> <span class="hljs-title function_">fetch</span>(cache[url]);
+  }
+
+  <span class="hljs-comment">// Otherwise, fetch the response from the server</span>
+  <span class="hljs-keyword">return</span> <span class="hljs-title function_">fetch</span>(url)
+    .<span class="hljs-title function_">then</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">response</span>) {
+      <span class="hljs-comment">// Store the response data in an object URL</span>
+      <span class="hljs-keyword">return</span> response.<span class="hljs-title function_">blob</span>();
+    })
+    .<span class="hljs-title function_">then</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">blob</span>) {
+      <span class="hljs-keyword">var</span> objectUrl = <span class="hljs-variable constant_">URL</span>.<span class="hljs-title function_">createObjectURL</span>(blob);
+      cache[url] = objectUrl;
+      <span class="hljs-keyword">return</span> <span class="hljs-title function_">fetch</span>(objectUrl);
+    });
+}
+
+<span class="hljs-comment">// Example usage:</span>
+<span class="hljs-keyword">var</span> apiUrl = <span class="hljs-string">'https://example.com/api/data'</span>;
+<span class="hljs-title function_">fetchAndCache</span>(apiUrl)
+  .<span class="hljs-title function_">then</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) {
+    <span class="hljs-comment">// Use the cached data</span>
+  });
+</code></pre>
+<h2>Conclusion</h2>
+<p>The concept of caching information in the memory of a web browser is an important technique for improving website performance and user experience. While we have only scratched the surface of this topic, exploring one caching approach, there are many other concepts and strategies available. It's important for web developers to understand caching and its impact on website performance, and to implement caching strategies that are appropriate for their specific use case. For those interested in exploring the caching approach discussed in this article, an implementation is available at <a href="https://github.com/lexmihaylov/cachee">https://github.com/lexmihaylov/cachee</a>.</p>
+
+</article>
+    </main>
+    <footer>
+        <div>2023 © All rights reserved.</div>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/lexmihaylov/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/lexmihaylov" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+    </footer>
+
+    <!-- Google tag (gtag.js) -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-H1TLPVR9PF"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-H1TLPVR9PF');
+    </script>
+
+
+</body></html>
