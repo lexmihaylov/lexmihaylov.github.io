@@ -90,9 +90,9 @@ main {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 
     background-color: var(--background-color);
-    background-image: linear-gradient(var(--pattern-background-color) 3.4000000000000004px, transparent 3.4000000000000004px), linear-gradient(90deg, var(--pattern-background-color) 3.4000000000000004px, transparent 3.4000000000000004px), linear-gradient(var(--pattern-background-color) 1.7000000000000002px, transparent 1.7000000000000002px), linear-gradient(90deg, var(--pattern-background-color)1.7000000000000002px, var(--background-color) 1.7000000000000002px);
+    /* background-image: linear-gradient(var(--pattern-background-color) 3.4000000000000004px, transparent 3.4000000000000004px), linear-gradient(90deg, var(--pattern-background-color) 3.4000000000000004px, transparent 3.4000000000000004px), linear-gradient(var(--pattern-background-color) 1.7000000000000002px, transparent 1.7000000000000002px), linear-gradient(90deg, var(--pattern-background-color)1.7000000000000002px, var(--background-color) 1.7000000000000002px);
     background-size: 85px 85px, 85px 85px, 17px 17px, 17px 17px;
-    background-position: -3.4000000000000004px -3.4000000000000004px, -3.4000000000000004px -3.4000000000000004px, -1.7000000000000002px -1.7000000000000002px, -1.7000000000000002px -1.7000000000000002px;
+    background-position: -3.4000000000000004px -3.4000000000000004px, -3.4000000000000004px -3.4000000000000004px, -1.7000000000000002px -1.7000000000000002px, -1.7000000000000002px -1.7000000000000002px; */
 
     position: relative;
     padding: 1rem;
