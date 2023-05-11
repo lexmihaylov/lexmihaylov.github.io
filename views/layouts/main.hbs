@@ -9,10 +9,7 @@
     <meta http-equiv='pragma' content='no-cache'>
     
     <title>
-        Just A Concept 
-        {{#if pageTitle}}
-            / {{ pageTitle }}
-        {{/if}}
+        {{pageTitle}}
     </title>
     {{>meta-tags}}
 
@@ -41,7 +38,10 @@
             </ul>
         </nav>
 
-        <div class="logo" data-text="Just - A - concept">Just A Concept</div>
+        <div class="logo">
+            <img src="/images/logo.png" alt="Just A Concept" title="Just A Concept">
+        </div>
+        {{!-- <div class="logo" data-text="Just - A - concept">Just A Concept</div> --}}
 
         <div class="social-links">
             <a href="https://www.linkedin.com/in/lexmihaylov/" target="_blank"><i class="fab fa-linkedin"></i></a>

@@ -18,6 +18,11 @@
     position: relative;
 }
 
+.logo img {
+    width: 350px;
+    max-width: 90%;
+}
+
 /* .logo::before {
     content: attr(data-text);
     position: absolute;
