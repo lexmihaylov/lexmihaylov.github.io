@@ -16,11 +16,13 @@
     text-transform: uppercase;
     color: var(--logo-color);
     position: relative;
+    width: 100%;
+    text-align: center;
 }
 
 .logo img {
     width: 350px;
-    max-width: 90%;
+    max-width: 60%;
 }
 
 /* .logo::before {
